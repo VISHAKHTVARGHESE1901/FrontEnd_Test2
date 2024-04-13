@@ -64,6 +64,7 @@
 			var rows = Array.from(table.rows);
 			rows.forEach(function (row, rowIndex) {
 				var cell = document.createElement('td');
+				cell.style.color = "Blue"; // Add color to new column
 				cell.textContent = "(" + rowIndex + "," + row.cells.length + ")";
 				row.appendChild(cell);
 			});
@@ -75,6 +76,7 @@
 			var numCols = table.rows[0].cells.length;
 			for (var c = 0; c < numCols; c++) {
 				var cell = document.createElement('td');
+				cell.style.color = "Blue"; // Add color to new row
 				cell.textContent = "(" + table.rows.length + "," + c + ")";
 				newRow.appendChild(cell);
 			}
