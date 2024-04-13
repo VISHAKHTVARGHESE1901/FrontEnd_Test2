@@ -10,6 +10,9 @@
 	<button id="b3" onclick="addRow()">Add Row</button>
 		
 	<script language="javascript">
+		function isNumber(value){
+			return /^\d+$/.test(value);
+		}
 		function generateTable() {
 			// Remove existing table if it exists
 			var oldTable = document.querySelector('table');
@@ -19,7 +22,13 @@
 	
 			var numRows = document.getElementById('t1').value;
 			var numCols = document.getElementById('t2').value;
+			if (!isNumber(numRows) || !isNumber(numCols)) {
+                alert('Invalid Input, Please enter a number for Rows and Columns.');
+                return;
+            }
 			var table = document.createElement('table');
+			table.setAttribute("border","1");	
+			table.style.margin = "25 auto"; // Center the table
 			for (var r = 0; r < numRows; r++) {
 				var row = document.createElement('tr');
 				for (var c = 0; c < numCols; c++) {
@@ -37,12 +46,16 @@
 			 var addColButton = document.createElement('button');
     		addColButton.innerText = 'Add Column';
     		addColButton.onclick = addColumn;
+    		addColButton.style.display = "block"; // Center the button
+    		addColButton.style.margin = "10 auto";
     		document.body.appendChild(addColButton);
 			
 			// Add the "Add row"  to add new row 
     		var addRowButton = document.createElement('button');
     		addRowButton.innerText = 'Add Row';
     		addRowButton.onclick = addRow;
+    		addRowButton.style.display = "block"; // Center the button
+    		addRowButton.style.margin = "5 auto";
     		document.body.appendChild(addRowButton);
 		}
 	
