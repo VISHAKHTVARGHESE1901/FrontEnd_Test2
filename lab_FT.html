@@ -29,7 +29,21 @@
 				}
 				table.appendChild(row);
 			}
-			document.body.appendChild(table);
+			document.body.innerHTML = ''; // Clear the body
+			
+			document.body.appendChild(table); // Add the table
+ 
+			// Add the "Add Column"  to add new column 
+			 var addColButton = document.createElement('button');
+    		addColButton.innerText = 'Add Column';
+    		addColButton.onclick = addColumn;
+    		document.body.appendChild(addColButton);
+			
+			// Add the "Add row"  to add new row 
+    		var addRowButton = document.createElement('button');
+    		addRowButton.innerText = 'Add Row';
+    		addRowButton.onclick = addRow;
+    		document.body.appendChild(addRowButton);
 		}
 	
 		function addColumn() {
